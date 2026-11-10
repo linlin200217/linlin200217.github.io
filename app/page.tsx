@@ -16,7 +16,7 @@ const news = [
   },
   {
     date: "2025-11",
-    text: 'Our paper "Beyond the Broadcast" has been accepted to IEEE TVCG 2025!',
+    text: 'Our paper "Beyond the Broadcast" has been accepted to IEEE VIS 2025!',
   },
   {
     date: "2025-07",
@@ -104,8 +104,10 @@ const publications = [
     authors:
       "Jun-Hsiang Yao, Jielin Feng, Xinfang Tian, Kai Xu, Gulshat Amirkhanova, Siming Chen",
     tag: "TVCG",
-    venue: "IEEE Transactions on Visualization and Computer Graphics, 2025",
-    link: "https://doi.org/10.1109/TVCG.2025.3634638",
+    tags: ["VIS", "TVCG"],
+    venue:
+      "IEEE Transactions on Visualization and Computer Graphics (VIS'25), 2025",
+    link: "https://ieeexplore.ieee.org/abstract/document/11267125/",
     image: "/publications/beyond-broadcast.png",
   },
   {
@@ -146,7 +148,13 @@ export default function Home() {
       <header className="masthead">
         <nav className="site-nav" aria-label="Main navigation">
           <a className="signature" href="#about-me" aria-label="Homepage">
-            Jielin Feng
+            <span className="signature-text">Jielin Feng</span>
+            <img
+              className="signature-pig"
+              src="/signature-winged-pig.png"
+              alt=""
+              aria-hidden="true"
+            />
           </a>
           <ul>
             <li>
@@ -182,35 +190,52 @@ export default function Home() {
           <ul className="contact-list">
             <li>
               <a href={scholarUrl} target="_blank" rel="noreferrer">
-                <span
+                <img
                   className="contact-icon scholar-icon"
-                  aria-label="Google Scholar"
-                  role="img"
+                  src="/contact-scholar-icon.png"
+                  alt="Google Scholar"
                 />
                 <span>Google Scholar: Jielin Feng</span>
               </a>
             </li>
             <li>
               <a href="mailto:jielinfeng23@m.fudan.edu.cn">
-                <span className="contact-icon email-icon" aria-hidden="true" />
+                <img
+                  className="contact-icon email-icon"
+                  src="/contact-email-icon.png"
+                  alt=""
+                  aria-hidden="true"
+                />
                 <span>Email: jielinfeng23@m.fudan.edu.cn</span>
               </a>
             </li>
             <li>
               <a href="https://fduvis.net/" target="_blank" rel="noreferrer">
-                <span className="contact-icon lab-icon" aria-hidden="true" />
+                <img
+                  className="contact-icon lab-icon"
+                  src="/contact-lab-icon.png"
+                  alt=""
+                  aria-hidden="true"
+                />
                 <span>Lab: FUD-VIS</span>
               </a>
             </li>
           </ul>
 
           <section className="news" id="news" aria-labelledby="news-title">
-            <h2 id="news-title">News</h2>
+            <h2 id="news-title">
+              <span className="heading-brush heading-brush-news">News</span>
+            </h2>
             <ul>
               {news.map((item) => (
                 <li key={`${item.date}-${item.text}`}>
                   <p>
-                    <span className="news-icon" aria-hidden="true">🎉</span>
+                    <img
+                      className="news-icon"
+                      src="/news-celebration-monster-v3.png"
+                      alt=""
+                      aria-hidden="true"
+                    />
                     {item.text}
                   </p>
                   <time dateTime={item.date}>{item.date}</time>
@@ -278,13 +303,23 @@ export default function Home() {
             <strong className="research-highlight">
               Data Storytelling and Communication
             </strong>
-            . I design, develop, and evaluate AI-driven interactive systems that
-            empower people to create, explore, understand, and communicate
-            complex information.
+            . I design, develop, and evaluate human–AI collaborative systems,
+            co-creation workflows, and design frameworks that empower people to
+            create, explore, understand, and communicate complex information.
           </p>
           <p>Welcome to my personal website. Feel free to explore my work!</p>
 
-          <h1 id="publications">📝 Publications</h1>
+          <h1 id="publications">
+            <img
+              className="publications-title-icon"
+              src="/publications-note-monster-v2.png"
+              alt=""
+              aria-hidden="true"
+            />
+            <span className="heading-brush heading-brush-publications">
+              Publications
+            </span>
+          </h1>
 
           <div className="publication-list">
             {publications.map((publication, index) => (
@@ -304,7 +339,9 @@ export default function Home() {
                   </h3>
                   <AuthorLine authors={publication.authors} />
                   <p className="publication-venue">
-                    <span>{publication.tag}</span>
+                    {(publication.tags ?? [publication.tag]).map((tag) => (
+                      <span key={tag}>{tag}</span>
+                    ))}
                     {publication.venue}
                   </p>
                   <div className="publication-links">
