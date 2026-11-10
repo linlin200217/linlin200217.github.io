@@ -160,10 +160,22 @@ export default function Home() {
             </li>
           </ul>
         </nav>
+        <img
+          className="header-monsters"
+          src="/furry-monster-row-v3.png"
+          alt=""
+          aria-hidden="true"
+        />
       </header>
 
       <main id="main" className="page-grid">
         <aside className="sidebar">
+          <img
+            className="sidebar-monster"
+            src="/furry-monster-blue-v2.png"
+            alt=""
+            aria-hidden="true"
+          />
           <div className="profile-photo">
             <img src="/profile-photo.jpg" alt="Jielin Feng" />
           </div>
@@ -254,18 +266,28 @@ export default function Home() {
             .
           </p>
           <p>
-            My research lies at the intersection of Human-Computer Interaction
-            (HCI), Human–AI Collaboration and Co-Creation, and Data Storytelling
-            and Communication. I design, develop, and evaluate AI-driven
-            interactive systems that empower people to create, explore,
-            understand, and communicate complex information.
+            My research lies at the intersection of{" "}
+            <strong className="research-highlight">
+              Human-Computer Interaction (HCI)
+            </strong>
+            ,{" "}
+            <strong className="research-highlight">
+              Human–AI Collaboration and Co-Creation
+            </strong>
+            , and{" "}
+            <strong className="research-highlight">
+              Data Storytelling and Communication
+            </strong>
+            . I design, develop, and evaluate AI-driven interactive systems that
+            empower people to create, explore, understand, and communicate
+            complex information.
           </p>
           <p>Welcome to my personal website. Feel free to explore my work!</p>
 
           <h1 id="publications">📝 Publications</h1>
 
           <div className="publication-list">
-            {publications.map((publication) => (
+            {publications.map((publication, index) => (
               <article className="publication-item" key={publication.title}>
                 <div className="publication-image">
                   <img src={publication.image} alt={`${publication.title} preview`} />
@@ -295,6 +317,14 @@ export default function Home() {
                     </a>
                   </div>
                 </div>
+                {index === 1 && (
+                  <img
+                    className="publication-wow-monster"
+                    src="/wow-monster-green.png"
+                    alt=""
+                    aria-hidden="true"
+                  />
+                )}
               </article>
             ))}
           </div>
