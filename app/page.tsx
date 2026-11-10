@@ -211,7 +211,7 @@ export default function Home() {
         <article className="page-content">
           <span className="anchor" id="about-me" />
           <p>
-            Hello! I&apos;m <strong>Jielin Feng</strong>, a Ph.D. student at the{" "}
+            Hello! I&apos;m <strong>Jielin Feng（冯捷琳）</strong>, a Ph.D. student at the{" "}
             <a
               href="https://sds.fudan.edu.cn/"
               target="_blank"
