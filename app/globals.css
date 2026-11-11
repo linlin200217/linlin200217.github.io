@@ -361,13 +361,25 @@ a:hover { text-decoration: underline; }
   margin: 0 0 5px;
   color: var(--text);
   font-size: 17.6px;
+  font-weight: 700;
   line-height: 1.35;
 }
-.publication-text h3 a { color: var(--text); }
+.publication-text h3 a {
+  color: var(--text);
+  font-weight: 700;
+}
 .publication-text h3 a:hover { color: var(--link); }
 .publication-authors {
   margin: 0 0 5px;
   line-height: 1.5;
+}
+.publication-authors strong {
+  font-weight: 700;
+  text-decoration-line: underline;
+  text-decoration-color: currentColor;
+  text-decoration-thickness: 1.5px;
+  text-decoration-skip-ink: auto;
+  text-underline-offset: 1px;
 }
 .publication-venue {
   margin: 0 0 6px;
