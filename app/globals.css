@@ -144,27 +144,53 @@ a:hover { text-decoration: underline; }
   z-index: 1;
 }
 .profile-photo {
+  position: relative;
   width: 240px;
   height: 320px;
-  display: grid;
-  place-items: center;
+  padding: 0;
+  display: block;
   overflow: hidden;
   border-radius: 18px;
   border: 1px solid #e4e7eb;
   background: #f6f7f8;
   color: #a0a6ad;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
 }
-.profile-photo img {
+.profile-photo-image {
+  position: absolute;
+  inset: 0;
   width: 100%;
   height: 100%;
   display: block;
   object-fit: cover;
   object-position: center 20%;
+  opacity: 0;
+  transform: scale(1.015);
+  transition: opacity 360ms ease, transform 480ms ease;
+  pointer-events: none;
+}
+.profile-photo-image.is-visible {
+  opacity: 1;
+  transform: scale(1);
+}
+.profile-photo:hover .profile-photo-image.is-visible {
+  transform: scale(1.012);
+}
+.profile-photo:focus-visible {
+  outline: 3px solid rgb(167 119 126 / 42%);
+  outline-offset: 3px;
 }
 .profile-photo span {
   font-family: "Avenir Next", "Segoe UI", Arial, sans-serif;
   font-size: 12px;
   letter-spacing: .04em;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .profile-photo-image { transition: none; }
+  .profile-photo:hover .profile-photo-image.is-visible { transform: none; }
 }
 .contact-list {
   display: grid;

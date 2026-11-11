@@ -1,3 +1,5 @@
+import ProfilePhotoToggle from "./ProfilePhotoToggle";
+
 const scholarUrl =
   "https://scholar.google.com/citations?user=m4P-8NMAAAAJ&hl=en";
 
@@ -184,9 +186,7 @@ export default function Home() {
             alt=""
             aria-hidden="true"
           />
-          <div className="profile-photo">
-            <img src="/profile-photo.jpg" alt="Jielin Feng" />
-          </div>
+          <ProfilePhotoToggle />
           <ul className="contact-list">
             <li>
               <a href={scholarUrl} target="_blank" rel="noreferrer">
